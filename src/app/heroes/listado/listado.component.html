@@ -1,0 +1,32 @@
+<h1>listado de heroes!</h1>
+
+<ul>
+    <!-- ciclo para imprimir el areglo desde el html -->
+    <!-- se pueden agregar mas variables dentro del for, en este caso para saber el indice o 
+    poscicion de los datos dentro del areglo -->
+    <li *ngFor="let heroe of heroes; let i = index">
+        {{i+1}} - {{heroe}}
+    </li>
+    <button (click)="borrarHeroe()">
+        Borrar heroe
+    </button>
+    <!-- se agrega una condicional if para ocultar el html restante -->
+    <!-- despues del else se pone una referencia local para indicar que pasa si no cumple la conndicion -->
+    <div *ngIf="heroesBorrados.length>0 && heroeborrado ; else sinborrar">
+        <h3>heroe eliminado: <small>{{heroeborrado}}</small></h3>
+        <h3>Heroes borrados</h3>
+        <li *ngFor="let item of  heroesBorrados">
+            {{item}}
+        </li>
+       
+    </div>
+<!-- la referencia loca #...-->
+     <ng-template #sinborrar>
+            <h3>No has borrado nada</h3>
+        </ng-template>
+        
+</ul>
+
+
+
+   
